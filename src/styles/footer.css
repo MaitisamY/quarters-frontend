@@ -1,0 +1,27 @@
+footer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row wrap;
+  flex-shrink: 1;
+  gap: 30px;
+  padding: 15px 20px 10px 20px;
+  box-sizing: border-box;
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+}
+
+footer p {
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  color: #344054e3;
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    padding: 15px 10px;
+  }
+}

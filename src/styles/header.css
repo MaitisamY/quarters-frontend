@@ -1,0 +1,57 @@
+header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: row wrap;
+  flex-shrink: 1;
+  gap: 30px;
+  padding: 0 30px;
+  box-sizing: border-box;
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+}
+
+header .site-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 130px;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+  animation: slideDownBig 1s ease-in-out;
+}
+
+@media screen and (max-width: 1024px) {
+  header {
+    padding: 20px 30px;
+  }
+
+  header .site-logo {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    padding: 30px 30px;
+    backdrop-filter: blur(9px);
+    justify-content: center;
+    align-items: center;
+  }
+
+  header .site-logo {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 184px;
+    height: 34px;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+    animation: slideDownBig 1s ease-in-out;
+  }
+}

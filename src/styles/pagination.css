@@ -1,0 +1,111 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+
+  .input-search-filter {
+    padding: 10px 20px;
+    border: none;
+    outline: 2px solid #2e2e2e;
+    background-color: transparent;
+    border-radius: 25px;
+    color: #2e2e2e;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .select-role {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    outline: 2px solid #2e2e2e;
+    background-color: transparent;
+    border-radius: 25px;
+    color: #2e2e2e;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .input-search-filter:hover,
+  .select-role:hover {
+    box-shadow: 0 0 0 4px #12b76a;
+    outline: 2px solid #12b76a86;
+  }
+
+  .input-search-filter:focus,
+  .input-search-filter:active {
+    box-shadow: 0 0 0 4px #12b76a;
+    outline: 2px solid #12b76a86;
+  }
+
+  .select-role {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    outline: 2px solid #2e2e2e;
+    background-color: transparent;
+    border-radius: 25px;
+    color: #2e2e2e;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .page-item {
+    margin: 0 5px;
+  }
+  
+  .page-link {
+    padding: 10px 20px;
+    border: 2px solid #2e2e2e86;
+    border-radius: 25px;
+    color: #2e2e2e86;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .page-link:hover {
+    border: 2px solid #2e2e2e;
+    color: #2e2e2e;
+  }
+  
+  .active .page-link {
+    background-color: #12b76a;
+    border-color: #12b76a;
+    color: white;
+  }
+  
+  .page-item .page-link[aria-disabled='true'] {
+    color: #949494;
+    border-color: #ddd;
+    cursor: not-allowed;
+    background-color: #e4e4e4;
+  }
+  
+  /* Table styles */
+  .table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .table th,
+  .table td {
+    padding: 10px;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }

@@ -1,0 +1,87 @@
+.inner-app-container {
+    width: 100%;
+    height: auto;
+    min-height: 92vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 0 30px 0 30px;
+    margin: 0;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    background: rgba(255, 255, 255, 0.1);
+    position: relative; /* Ensure pseudo-elements are positioned relative to this container */
+}
+  
+.inner-app-container .left-curve {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Ensure these shapes are behind the content */
+    width: 650px; /* Adjust the width as needed */
+    height: auto;
+}
+  
+ .inner-app-container .bottom-right-shape {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1; /* Ensure these shapes are behind the content */
+    width: 600px; /* Adjust the width as needed */
+    height: auto;
+}
+  
+  @media screen and (max-width: 768px) {
+    .inner-app-container .left-curve {
+      display: none;
+    }
+  
+    .inner-app-container .bottom-right-shape {
+      display: none;
+    }
+}
+  
+.inner-app-box {
+    position: relative;
+    width: 50vw;
+    height: auto;
+    min-height: 95vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 100px 10px;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.inner-app-box .inner-app-box-header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+.inner-app-box .inner-app-box-header .logout-button {
+    margin: 0;
+    padding: 0;
+    animation: fadeIn 1s ease-in-out;
+    text-decoration: none;
+    color: red;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
