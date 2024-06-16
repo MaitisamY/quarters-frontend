@@ -1,11 +1,11 @@
 import '../styles/outer-app.css';
 
-import { useState, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { useAuth } from '../context/AuthProvider';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
@@ -57,21 +57,56 @@ const Welcome = () => {
         onSubmit: async (values) => {
             setIsLoading(true);
             try {
-                const response = await axios.post('https://reqres.in/api/register', values);
+                const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/new/referrals`, {
+                    referrer: user?.name, 
+                    referrer_email: user?.email, 
+                    referred_email: values.email,
+                    referral_code: user.name + user.uniqueId,
+                });
                 if (response.status === 200) {
-                    toast.success('Account created successfully');
-                    setIsLoading(false);
+                    setTimeout(() => {
+                        toast.success(`Refferal code sent to ${values.email}`, {
+                            position: "bottom-center",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "colored",
+                        });
+
+                        formik.resetForm();
+                        setIsLoading(false);
+                    }, 3000);
                 }
             } catch (error) {
-                toast.error(error.response.data.error);
-                setIsLoading(false);
+                setTimeout(() => {
+                    toast.error(error.response.data.error, {
+                        position: "bottom-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
+                    setIsLoading(false);
+                }, 3000);
             }
         },
     });
 
     if (!user) {
-        navigate('/');
+        navigate('/signup');
     }
+
+    useEffect(() => {
+        if (!user) {
+            navigate('/signup');
+        }
+    }, [user, navigate]);
 
     return (
         <>
@@ -109,11 +144,11 @@ const Welcome = () => {
                                 </div>
                                 <div className="paragraph">
                                     <p>
-                                        Hi <strong>John Doe</strong>
+                                        Hi <strong>{user.name}</strong>
                                     </p>
                                     <p>
                                         Thank you for signing up to Quarters, 
-                                        you are the # <strong>1089th</strong> person on our wait-list!
+                                        you are the # <strong>{user.uniqueId}</strong> person on our wait-list!
                                     </p>
                                     <p>
                                         As we prepare for launch we’re offering cash-back to pre-load 
@@ -122,7 +157,7 @@ const Welcome = () => {
                                     </p>
                                     <p> 
                                         We’ve emailed you some information on what you can 
-                                        expect as a(n) <strong>Renter</strong> when we launch. 
+                                        expect as a(n) <strong>{user.role.charAt(0).toUpperCase() + user.role.slice(1)}</strong> when we launch. 
                                     </p> 
                                     <p>
                                         Let’s change renting together, you can keep the change.
@@ -149,7 +184,11 @@ const Welcome = () => {
                                         className="custom-button"
                                         disabled={isLoading}
                                     >
-                                        {isLoading ? 'Loading...' : 'Send Invite'}
+                                        {
+                                            isLoading ?
+                                                <>Sending... <div className="loader"></div></>
+                                                : 'Send Refferal Code'
+                                        }
                                     </button>
                                 </form>
                             </div>

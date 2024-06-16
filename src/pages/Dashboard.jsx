@@ -2,7 +2,6 @@ import '../styles/inner-app.css';
 import '../styles/header.css'
 import '../styles/footer.css'
 
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MdLogout } from 'react-icons/md';
 
@@ -81,7 +80,7 @@ const Dashboard = () => {
                                 borderBottom: '1px solid #f2f2f2' 
                             }}
                         >
-                            <span>Dashboard</span>
+                            <span>Sample Dashboard</span>
                             <div style={{ fontWeight: '600', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 Hi! John Doe
                                 <a className="logout-button" href="#">
@@ -97,10 +96,6 @@ const Dashboard = () => {
 
                 <footer>
                     <p>© quarters {new Date().getFullYear()}</p>
-                    <Link className="link" to="/signup">Signup</Link>
-                    <Link className="link" to="/verify">Verification</Link>
-                    <Link className="link" to="/welcome">Welcome</Link>
-                    <Link className="link" to="/login">Login</Link>
                     <p>help@quarters.com</p>
                 </footer>
             </div>

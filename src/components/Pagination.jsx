@@ -2,25 +2,30 @@ import { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import { motion } from 'framer-motion';
 import { FaPen, FaTrash } from 'react-icons/fa';
+import axios from 'axios';
 import '../styles/pagination.css'; 
 
-// Sample data generation with roles
 const roles = ['landlord', 'renter', 'agent'];
 
-const items = Array.from({ length: 50 }, (_, i) => ({
-  name: `Name ${i + 1}`,
-  email: `email${i + 1}@example.com`,
-  phone: `123-456-789${i}`,
-  role: roles[Math.floor(Math.random() * roles.length)],
-}));
-
 const PaginatedItems = ({ itemsPerPage }) => {
+  const [items, setItems] = useState([]);
   const [currentItems, setCurrentItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRole, setSelectedRole] = useState('all'); // Default is 'all'
+
+  const fetchUsers = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/users/all');
+      setItems(response.data);
+
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     // Filter items based on search term and selected role
@@ -55,6 +60,10 @@ const PaginatedItems = ({ itemsPerPage }) => {
     setSelectedRole(event.target.value);
     setItemOffset(0); // Reset offset when role changes
   };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   return (
     <>

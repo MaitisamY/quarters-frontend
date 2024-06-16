@@ -13,7 +13,7 @@ import Footer from '../partials/Footer';
 import { motion } from 'framer-motion';
 
 const Login = () => {
-    const { user, login, logout } = useAuth()
+    const { user, login } = useAuth()
     const navigate = useNavigate()
 
     const [isShown, setIsShown] = useState(false)

@@ -63,7 +63,7 @@ const Signup = () => {
             lastName: Yup.string().required('Last name is required'),
             email: Yup.string().email('Invalid email address').required('Email is required'),
             phoneNumber: Yup.string().required('Phone number is required'),
-            role: Yup.string(),
+            role: Yup.string().required('Role is required'),
             password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
             confirmPassword: Yup.string()
                 .oneOf([Yup.ref('password'), null], 'Passwords must match')
@@ -73,7 +73,7 @@ const Signup = () => {
             try {
                 setIsLoading(true);
                 const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/users/register`, {
-                    role: values.role,
+                    role: values.role.length > 0 ? values.role : 'admin',
                     name: values.fullName,
                     lastName: values.lastName,
                     email: values.email,
@@ -84,17 +84,6 @@ const Signup = () => {
                 setTimeout(() => {
                     register(response.data);
                     setIsLoading(false);
-                    toast.success('Your account has been created successfully', {
-                        position: "bottom-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "colored",
-                    });
-
                     navigate(`/verify`);
                 }, 3000);
             } catch (error) {
