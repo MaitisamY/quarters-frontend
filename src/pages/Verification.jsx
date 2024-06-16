@@ -21,7 +21,7 @@ const handleInput = (e, nextInput, prevInput) => {
 };
 
 const Verification = () => {
-    const { user } = useAuth();
+    const { user, logout } = useAuth();
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -275,6 +275,13 @@ const Verification = () => {
                             Didn't receive the OTP email? {' '}
                             <Link className="link" to="/resend">Click to resend</Link>
                         </p>
+                    </div>
+                    <div className="row-flex-center">
+                        <button 
+                            style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer', outline: 'none'}} 
+                            className="link" 
+                            onClick={logout}
+                        >Cancel and Return</button>
                     </div>
                 </motion.div>
                 <Footer />
