@@ -7,11 +7,5 @@ services:
       branch: main
     build_command: npm run build
     run_command: npm install -g serve && serve -s build
-    envs:
-      - key: NODE_ENV
-        value: production
-routes:
-  - path: /
-    service: quarters-frontend
 
         
