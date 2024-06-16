@@ -20,8 +20,6 @@ const PaginatedItems = ({ itemsPerPage }) => {
     try {
       const response = await axios.get('http://localhost:5000/api/users/all');
       setItems(response.data);
-
-      console.log(response.data);
     } catch (error) {
       console.error(error);
     }

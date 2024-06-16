@@ -49,8 +49,6 @@ const Dashboard = () => {
         navigate('/login');
     }
 
-    console.log(user);
-
     return (
         <>
             <header>
