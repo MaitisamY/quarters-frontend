@@ -1,10 +1,17 @@
 name: quarters-frontend
+region: toronto
 services:
   - name: quarters-frontend
     github:
-      repo: https://github.com/MaitisamY/quarters-frontend.git  # Replace with your GitHub repository
-      branch: main  # Replace with your branch name
+      repo: https://github.com/MaitisamY/quarters-frontend.git
+      branch: main
     build_command: npm run build
+    run_command: npm install -g serve && serve -s build
     envs:
       - key: NODE_ENV
         value: production
+routes:
+  - path: /
+    service: quarters-frontend
+
+        
