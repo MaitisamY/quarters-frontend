@@ -9,5 +9,11 @@ export default defineConfig({
   server: {
     port: process.env.NODE_ENV === 'production' ? 8080 : (process.env.VITE_PORT || 5173),
     // other server options...
-  }
+  },
+  build: {
+    outDir: 'build', // Specify the output directory for the build
+    assetsDir: '.', // Assets directory relative to the output directory
+    sourcemap: false, // Disable source maps for production
+    // other build options...
+  },
 });
