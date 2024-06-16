@@ -119,6 +119,8 @@ const Verification = () => {
         }
     }, [user, navigate]);
 
+    console.log(user);
+
     return (
         <>
             <Header />
