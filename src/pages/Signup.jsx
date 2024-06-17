@@ -84,7 +84,7 @@ const Signup = () => {
                 setTimeout(() => {
                     register(response.data);
                     setIsLoading(false);
-                    navigate(`/verify`);
+                    navigate(`/welcome`);
                 }, 3000);
             } catch (error) {
                 const errorMessage = error.response?.data?.message || 'Credententials invalidated!';
