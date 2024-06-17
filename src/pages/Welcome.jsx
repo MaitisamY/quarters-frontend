@@ -147,13 +147,17 @@ const Welcome = () => {
                                         Hi <strong>{user.name}</strong>
                                     </p>
                                     <p>
-                                        Thank you for signing up to Quarters, 
-                                        you are the # <strong>{user.uniqueId}</strong> person on our wait-list!
+                                        Thank you for signing up to Quarters.
+                                    </p>
+                                    <p> 
+                                        You are the <strong>{user.uniqueId}th</strong> on our waitlist!
                                     </p>
                                     <p>
-                                        As we prepare for launch we’re offering cash-back to pre-load 
-                                        your Quarters Wallet. For every referral that creates an account 
-                                        you get $5. The person with the most successful referrals wins $5,000.
+                                        As we prepare for launch we’re offering cash-back so you can preload your Quarters wallet. 
+                                    </p>
+                                    <p>
+                                        For everyone you refer that creates an account you’ll get $5. 
+                                        When we launch, the leaderboard will be announced and the 3 users with the most referrals will win an additional $5,000, $2,500 and $1000. 
                                     </p>
                                     <p> 
                                         We’ve emailed you some information on what you can 
