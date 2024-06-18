@@ -16,6 +16,7 @@ import AdminRoutes from './routes/AdminRoutes'
 const App = () => {
     return (
         <AuthProvider>
+            <AdminAuthProvider>
             <Router>
                 <ToastContainer />
                 <Routes>
@@ -30,15 +31,14 @@ const App = () => {
                         path="/admin/*"
                         element={
                             <ProtectedRoute roles={['admin']}>
-                                <AdminAuthProvider>
-                                    <AdminRoutes />
-                                </AdminAuthProvider>
+                                <AdminRoutes />
                             </ProtectedRoute>
                         }
                     />
                     <Route path="/unauthorized" element={<div>Unauthorized Access</div>} />
                 </Routes>
             </Router>
+            </AdminAuthProvider>
         </AuthProvider>
     )
 }
