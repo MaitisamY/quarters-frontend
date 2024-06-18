@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer } from 'react'
 
 // Initial state for admin
 export const initialAdminState = {
-    admin: JSON.parse(localStorage.getItem('user')) || null,
+    admin: JSON.parse(localStorage.getItem('admin')) || null,
 }
 
 // Reducer function for admin

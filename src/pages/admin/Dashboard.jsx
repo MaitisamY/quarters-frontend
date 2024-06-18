@@ -2,9 +2,8 @@ import '../../styles/inner-app.css';
 import '../../styles/header.css'
 import '../../styles/footer.css'
 
-import { useAuth } from "../../context/AuthProvider"
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useAdminAuth } from "../../context/AdminAuthProvider"
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MdLogout } from 'react-icons/md';
 
@@ -12,7 +11,7 @@ import PaginatedItems from '../../components/Pagination';
 
 const Dashboard = () => {
 
-    const { user, logout } = useAuth()
+    const { admin, adminLogout } = useAdminAuth();
 
     const navigate = useNavigate();
 
@@ -43,9 +42,9 @@ const Dashboard = () => {
         },
     };
 
-    document.title = `Quarters | ${user?.role.charAt(0).toUpperCase() + user?.role.slice(1) || 'Admin'} | Dashboard`;
+    document.title = `Quarters | ${admin?.role.charAt(0).toUpperCase() + admin?.role.slice(1) || 'Admin'} | Dashboard`;
 
-    if (!user) {
+    if (!admin) {
         navigate('/login');
     }
 
@@ -93,8 +92,8 @@ const Dashboard = () => {
                         >
                             <span>Dashboard</span>
                             <div style={{ fontWeight: '600', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                Hi! {user?.name} 
-                                <a className="logout-button" onClick={logout}>
+                                Hi! {admin?.name} 
+                                <a className="logout-button" onClick={adminLogout}>
                                     <MdLogout size={20} />
                                 </a>
                             </div>
