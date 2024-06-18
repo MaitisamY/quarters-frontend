@@ -2,6 +2,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './context/AuthProvider'
+import { AdminAuthProvider } from './context/AdminAuthProvider'
 import { ToastContainer } from 'react-toastify'
 import Signup from './pages/Signup'
 import Verification from './pages/Verification'
@@ -29,7 +30,9 @@ const App = () => {
                         path="/admin/*"
                         element={
                             <ProtectedRoute roles={['admin']}>
-                                <AdminRoutes />
+                                <AdminAuthProvider>
+                                    <AdminRoutes />
+                                </AdminAuthProvider>
                             </ProtectedRoute>
                         }
                     />

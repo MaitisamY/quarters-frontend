@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios'
-import { useAuth } from '../context/AuthProvider'
+import { useAdminAuth } from '../context/AdminAuthProvider'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { FaEye, FaEyeSlash } from 'react-icons/fa6'
@@ -13,7 +13,7 @@ import Footer from '../partials/Footer';
 import { motion } from 'framer-motion';
 
 const Login = () => {
-    const { user, login } = useAuth()
+    const { admin, adminLogin } = useAdminAuth()
     const navigate = useNavigate()
 
     const [isShown, setIsShown] = useState(false)
@@ -68,7 +68,7 @@ const Login = () => {
 
                 const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/users/login`, values)
                 setTimeout(() => {
-                    login(response.data)
+                    adminLogin(response.data)
                     setIsLoading(false)
                     navigate(`/${response.data.role}/dashboard`)
                 }, 3000)
@@ -95,8 +95,8 @@ const Login = () => {
 
     document.title = 'Quarters | Login'
 
-    if (user) {
-        navigate(`/${user.role}/dashboard`)
+    if (admin) {
+        navigate(`/${admin.role}/dashboard`)
     }
 
     return (
