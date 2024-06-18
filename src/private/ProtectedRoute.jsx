@@ -1,14 +1,14 @@
 import { Navigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthProvider'
+import { useAdminAuth } from '../context/AdminAuthProvider'
 
 const ProtectedRoute = ({ roles, children }) => {
-    const { user } = useAuth();
+    const { admin } = useAdminAuth();
 
-    if (!user) {
+    if (!admin) {
         return <Navigate to="/login" />;
     }
 
-    if (roles && !roles.includes(user.role)) {
+    if (roles && !roles.includes(admin.role)) {
         return <Navigate to="/unauthorized" />;
     }
 
