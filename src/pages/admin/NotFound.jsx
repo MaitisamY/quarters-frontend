@@ -2,6 +2,9 @@ import '../../styles/inner-app.css';
 import '../../styles/header.css'
 import '../../styles/footer.css'
 
+import V1 from '../../assets/v1.png'
+import V2 from '../../assets/v2.png'
+
 import { motion } from 'framer-motion';
 
 const NotFound = () => {
@@ -44,8 +47,8 @@ const NotFound = () => {
             </header>
 
             <div className="inner-app-container">
-            <motion.img
-                    src="./images/v1.png"
+                <motion.img
+                    src={V1}
                     className="left-curve"
                     alt="Left curve decoration"
                     initial="hidden"
@@ -53,7 +56,7 @@ const NotFound = () => {
                     variants={leftCurveVariants}
                 />
                 <motion.img
-                    src="./images/v2.png"
+                    src={V2}
                     className="bottom-right-shape"
                     alt="Bottom right shape decoration"
                     initial="hidden"

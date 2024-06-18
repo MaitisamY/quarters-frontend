@@ -2,6 +2,9 @@ import '../../styles/inner-app.css';
 import '../../styles/header.css'
 import '../../styles/footer.css'
 
+import V1 from '../../assets/v1.png'
+import V2 from '../../assets/v2.png'
+
 import { useAdminAuth } from "../../context/AdminAuthProvider"
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -57,7 +60,7 @@ const Dashboard = () => {
             <div className="inner-app-container">
                 
                 <motion.img
-                    src="../images/v1.png"
+                    src={V1}
                     className="left-curve"
                     alt="Left curve decoration"
                     initial="hidden"
@@ -65,7 +68,7 @@ const Dashboard = () => {
                     variants={leftCurveVariants}
                 />
                 <motion.img
-                    src="../images/v2.png"
+                    src={V2}
                     className="bottom-right-shape"
                     alt="Bottom right shape decoration"
                     initial="hidden"
