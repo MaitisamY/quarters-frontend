@@ -61,16 +61,14 @@ const NotFound = () => {
                     variants={bottomRightShapeVariants}
                 />
                 <motion.div 
-                    className="outer-app-box"
+                    className="not-found"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1 }}
                 >
-                    <div className="not-found">
-                        <h1>404 - Not Found</h1>
-                        <p>The page you are looking for does not exist.</p>
-                        <a className="link" onClick={goBack}>Go Back</a>
-                    </div>
+                    <h1>404 - Not Found</h1>
+                    <p>The page you are looking for does not exist.</p>
+                    <a className="link" onClick={goBack}>Go Back</a>
                 </motion.div>
                 <footer>
                     <p>© quarters {new Date().getFullYear()}</p>
