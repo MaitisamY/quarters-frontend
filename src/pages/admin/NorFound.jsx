@@ -2,6 +2,8 @@ import '../../styles/inner-app.css';
 import '../../styles/header.css'
 import '../../styles/footer.css'
 
+import { motion } from 'framer-motion';
+
 const NotFound = () => {
 
     const goBack = () => {

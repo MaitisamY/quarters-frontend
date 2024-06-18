@@ -1,6 +1,8 @@
 import '../styles/outer-app.css'
 
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion';
+
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 
