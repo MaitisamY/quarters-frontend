@@ -1,10 +1,12 @@
-import '../styles/outer-app.css'
-
-import { Link } from 'react-router-dom'
-import Header from '../partials/Header';
-import Footer from '../partials/Footer';
+import '../../styles/inner-app.css';
+import '../../styles/header.css'
+import '../../styles/footer.css'
 
 const NotFound = () => {
+
+    const goBack = () => {
+        window.history.back(); // This will navigate back one step in the browser history
+    }
 
     const leftCurveVariants = {
         hidden: { opacity: 0, x: "50%", y: "-50%" },
@@ -35,8 +37,11 @@ const NotFound = () => {
 
     return (
         <>
-            <Header />
-            <div className="outer-app-container">
+            <header>
+                <img className="site-logo" src="../images/Vector.png" alt="logo" />
+            </header>
+
+            <div className="inner-app-container">
             <motion.img
                     src="./images/v1.png"
                     className="left-curve"
@@ -62,10 +67,13 @@ const NotFound = () => {
                     <div className="not-found">
                         <h1>404 - Not Found</h1>
                         <p>The page you are looking for does not exist.</p>
-                        <Link className="link" to="/login">Go to Login</Link>
+                        <a className="link" onClick={goBack}>Go Back</a>
                     </div>
                 </motion.div>
-                <Footer />
+                <footer>
+                    <p>© quarters {new Date().getFullYear()}</p>
+                    <p>help@quarters.com</p>
+                </footer>
             </div>
         </>
     )

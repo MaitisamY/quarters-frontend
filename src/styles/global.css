@@ -339,27 +339,13 @@ img.logo {
 .not-found {
   width: 100%;
   height: auto;
-  min-height: 100vh;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 100px;
   margin: 0;
-  overflow: hidden;
-  background: linear-gradient(
-    45deg,
-    #afe8ffa4,
-    #ffc3a0a6,
-    #b4fdb19f,
-    #cfebfea2,
-    #f8ea9baf,
-    #ffdabcb2
-  );
-  background-size: 300% 300%;
-  animation: gradient 30s ease infinite;
 }
 
 .not-found h1 {

@@ -1,6 +1,6 @@
 import '../styles/outer-app.css'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios'
@@ -98,6 +98,12 @@ const Login = () => {
     if (admin) {
         navigate(`/${admin.role}/dashboard`)
     }
+
+    useEffect(() => {
+        if (admin) {
+            navigate(`/${admin.role}/dashboard`)
+        }
+    }, [admin, navigate])
 
     return (
         <>
