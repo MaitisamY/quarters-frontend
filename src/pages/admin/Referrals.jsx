@@ -93,7 +93,7 @@ const Referrals = () => {
                                 borderBottom: '1px solid #f2f2f2' 
                             }}
                         >
-                            <span>Referrals <Link className="link" to="/admin/dashboard">Dashboard</Link></span>
+                            <span><Link className="link" to="/admin/dashboard">Dashboard</Link> Referrals</span>
                             <div style={{ fontWeight: '600', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 Hi! {admin?.name} 
                                 <a className="logout-button" onClick={adminLogout}>
