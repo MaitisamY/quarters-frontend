@@ -39,6 +39,8 @@ export const AdminAuthProvider = ({ children }) => {
         localStorage.setItem('admin', JSON.stringify(adminData));
     };
 
+    // localStorage.removeItem('admin');
+
     return (
         <AdminAuthContext.Provider value={{ admin: state.admin, adminLogin, adminLogout, adminRegister }}>
             {children}

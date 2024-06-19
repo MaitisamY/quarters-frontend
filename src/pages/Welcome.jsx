@@ -61,11 +61,11 @@ const Welcome = () => {
                     referrer: user?.name, 
                     referrer_email: user?.email, 
                     referred_email: values.email,
-                    referral_code: user.name + user.uniqueId,
+                    referral_code: user.name.split(' ').join('_') + user.uniqueId,
                 });
                 if (response.status === 200) {
                     setTimeout(() => {
-                        toast.success(`Refferal code sent to ${values.email}`, {
+                        toast.success(`Referral code sent to ${values.email}`, {
                             position: "bottom-center",
                             autoClose: 5000,
                             hideProgressBar: false,
@@ -161,7 +161,8 @@ const Welcome = () => {
                                     </p>
                                     <p> 
                                         We’ve emailed you some information on what you can 
-                                        expect as a(n) <strong>{user.role.charAt(0).toUpperCase() + user.role.slice(1)}</strong> when we launch. 
+                                        expect as {user?.role === 'landlord' ? 'a' : user?.role === 'tenant' ? 'a' : 'an'} {' '}
+                                        <strong>{user.role.charAt(0).toUpperCase() + user.role.slice(1)}</strong> when we launch. 
                                     </p> 
                                     <p>
                                         Let’s change renting together, you can keep the change.
@@ -169,7 +170,7 @@ const Welcome = () => {
                                 </div>
 
                                 <form autoComplete="off" onSubmit={formik.handleSubmit}>
-                                    <label htmlFor="email">Refferal Email</label>
+                                    <label htmlFor="email">Referral Email</label>
                                         <div className="custom-group">
                                             <input
                                                 className="field"
@@ -191,7 +192,7 @@ const Welcome = () => {
                                         {
                                             isLoading ?
                                                 <>Sending... <div className="loader"></div></>
-                                                : 'Send Refferal Code'
+                                                : 'Send Referral Code'
                                         }
                                     </button>
                                 </form>

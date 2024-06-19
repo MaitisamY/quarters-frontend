@@ -10,9 +10,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MdLogout } from 'react-icons/md';
 
-import PaginatedItems from '../../components/Pagination';
+import PaginatedItems from '../../components/ReferralPagination';
 
-const Dashboard = () => {
+const Referrals = () => {
 
     const { admin, adminLogout } = useAdminAuth();
 
@@ -93,7 +93,7 @@ const Dashboard = () => {
                                 borderBottom: '1px solid #f2f2f2' 
                             }}
                         >
-                            <span>Dashboard <Link className="link" to="/admin/referrals">Referrals</Link></span>
+                            <span>Referrals <Link className="link" to="/admin/dashboard">Dashboard</Link></span>
                             <div style={{ fontWeight: '600', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 Hi! {admin?.name} 
                                 <a className="logout-button" onClick={adminLogout}>
@@ -116,4 +116,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default Referrals
