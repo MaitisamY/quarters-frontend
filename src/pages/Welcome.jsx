@@ -161,7 +161,7 @@ const Welcome = () => {
                                     </p>
                                     <p> 
                                         We’ve emailed you some information on what you can 
-                                        expect as {user?.role === 'landlord' ? 'a' : user?.role === 'tenant' ? 'a' : 'an'} {' '}
+                                        expect as {user?.role === 'landlord' ? 'a' : user?.role === 'renter' ? 'a' : 'an'} {' '}
                                         <strong>{user.role.charAt(0).toUpperCase() + user.role.slice(1)}</strong> when we launch. 
                                     </p> 
                                     <p>
