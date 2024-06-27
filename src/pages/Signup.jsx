@@ -72,7 +72,7 @@ const Signup = () => {
         onSubmit: async (values) => {
             try {
                 setIsLoading(true);
-                const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/users/register`, {
+                const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/users/register`, {
                     role: values.role.length > 0 ? values.role : 'admin',
                     name: values.fullName,
                     lastName: values.lastName,
@@ -84,7 +84,7 @@ const Signup = () => {
                 setTimeout(() => {
                     register(response.data);
                     setIsLoading(false);
-                    navigate(`/welcome`);
+                    navigate(`/verify`);
                 }, 3000);
             } catch (error) {
                 const errorMessage = error.response?.data?.message || 'Credententials invalidated!';
