@@ -103,6 +103,8 @@ const Welcome = () => {
         },
     });
 
+    document.title = 'Quarters | Welcome';
+
     if (!user) {
         navigate('/signup');
     }
