@@ -203,7 +203,7 @@ const Welcome = () => {
                                 </form>
                             </div>
                         </div>
-                        <div className="row-flex-center">
+                        <div className="row-flex-center mt-10">
                             <button 
                                 style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer', outline: 'none' }} 
                                 className="link" 
