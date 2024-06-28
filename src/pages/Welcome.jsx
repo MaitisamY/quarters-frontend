@@ -13,7 +13,7 @@ import { motion } from 'framer-motion';
 
 const Welcome = () => {
 
-    const { user } = useAuth();
+    const { user, logout } = useAuth();
     const [isLoading, setIsLoading] = useState(false);
 
     const navigate = useNavigate();
@@ -197,6 +197,13 @@ const Welcome = () => {
                                     </button>
                                 </form>
                             </div>
+                        </div>
+                        <div className="row-flex-center">
+                            <button 
+                                style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer', outline: 'none' }} 
+                                className="link" 
+                                onClick={logout}
+                            >Close and Return</button>
                         </div>
                     </div>
                 </motion.div>
