@@ -10,6 +10,7 @@ import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import { motion } from 'framer-motion';
 import { MdMailOutline } from 'react-icons/md';
+import axios from 'axios';
 
 const handleInput = (e, nextInput, prevInput) => {
     const { value } = e.target;
@@ -42,9 +43,27 @@ const Verification = () => {
             setIsLoading(true);
             const enteredCode = `${values.code1}${values.code2}${values.code3}${values.code4}`;
             if (enteredCode === user.verificationCode) {
-                setTimeout(() => {
-                    navigate('/welcome'); // Redirect to a welcome page or dashboard
-                }, 2000);
+                try {
+                    await axios.post(`${import.meta.env.VITE_SERVER_URL}/users/welcome`, {
+                        email: user.email,
+                    });
+                    setTimeout(() => {
+                        navigate('/welcome'); // Redirect to a welcome page or dashboard
+                    }, 2000);
+                } catch (error) {
+                    console.error('Error sending welcome email:', error);
+                    toast.error('Error sending welcome email', {
+                        position: "bottom-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
+                    setIsLoading(false);
+                }
             } else {
                 setTimeout(() => {
                     toast.error('Verification code is incorrect', {

@@ -52,12 +52,17 @@ const Welcome = () => {
         validationSchema: Yup.object({
             email: Yup.string()
                 .email('Invalid email address')
-                .required('Email is required'),
+                .required('Email is required')
+                .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Invalid email address')
+                .max(50, 'Email must be less than 50 characters')
+                .notOneOf([user?.email], 'You cannot refer yourself')
+                .notOneOf([user?.email.toUpperCase()], 'You cannot refer yourself')
+                .notOneOf([user?.email.toLowerCase()], 'You cannot refer yourself')
         }),
         onSubmit: async (values) => {
             setIsLoading(true);
             try {
-                const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/new/referrals`, {
+                const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/new/referrals`, {
                     referrer: user?.name, 
                     referrer_email: user?.email, 
                     referred_email: values.email,

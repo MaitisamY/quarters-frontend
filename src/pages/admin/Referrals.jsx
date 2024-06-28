@@ -45,7 +45,7 @@ const Referrals = () => {
         },
     };
 
-    document.title = `Quarters | ${admin?.role.charAt(0).toUpperCase() + admin?.role.slice(1) || 'Admin'} | Dashboard`;
+    document.title = `Quarters | ${admin?.role.charAt(0).toUpperCase() + admin?.role.slice(1) || 'Admin'} | Referrals`;
 
     if (!admin) {
         navigate('/login');

@@ -36,7 +36,7 @@ const Dashboard = () => {
         },
     };
 
-    document.title = `Quarters || 'Admin' | Dashboard`;
+    document.title = `Quarters | Admin | Dashboard`;
 
     return (
         <>
