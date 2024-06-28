@@ -10,6 +10,7 @@ import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import { motion } from 'framer-motion';
 import { MdMailOutline } from 'react-icons/md';
+import axios from 'axios';
 
 const handleInput = (e, nextInput, prevInput) => {
     const { value } = e.target;
