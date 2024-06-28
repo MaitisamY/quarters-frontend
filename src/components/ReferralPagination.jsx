@@ -15,7 +15,7 @@ const PaginatedItems = ({ itemsPerPage }) => {
 
   const fetchReferrals = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/new/getReferrals`);
+      const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/new/getReferrals`);
       setItems(response.data);
     } catch (error) {
       console.error(error);
