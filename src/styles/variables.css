@@ -1,20 +1,20 @@
 :root {
-  --header-gradient: linear-gradient(45deg, #ffc3a0a6, #f8ea9baf, #ffdabcb2);
-  --dropdown-box-shadow: 0 1px 6px -1px rgba(0, 0, 0, 0.2);
-  --dropdown-bg-color: #33333307;
-  --dropdown-pointy-color: #fff;
-  --box-two-pointy-color: #fddfbf;
-  --text-color: #000;
-  --text-green: #12b76a;
-  --text-green-shadow: 0 0 0 4px #12b76a63;
-  --line-blue-color: #3b57d3;
-  --bg-color: #fff;
-  --active-link: #12b76a;
-  --active-link-bg: #fff;
-  --border-color: #686868;
-  --light-shadow: 20px 20px 0px 0px #80808040;
-  --hard-shadow: 12px 12px 0px 0px #646464;
-  --monster-shadow: 6px 6px 0px 0px #3a3a3a;
-  --radio-hover-effect: 0 0 0 4px #12b76a63;
-  --radio-active-effect: 0 0 0 4px #12b76a63;
+    --header-gradient: linear-gradient(45deg, #ffc3a0a6, #f8ea9baf, #ffdabcb2);
+    --dropdown-box-shadow: 0 1px 6px -1px rgba(0, 0, 0, 0.2);
+    --dropdown-bg-color: #33333307;
+    --dropdown-pointy-color: #fff;
+    --box-two-pointy-color: #fddfbf;
+    --text-color: #000;
+    --text-green: #12b76a;
+    --text-green-shadow: 0 0 0 4px #12b76a63;
+    --line-blue-color: #3b57d3;
+    --bg-color: #fff;
+    --active-link: #12b76a;
+    --active-link-bg: #fff;
+    --border-color: #686868;
+    --light-shadow: 20px 20px 0px 0px #80808040;
+    --hard-shadow: 12px 12px 0px 0px #646464;
+    --monster-shadow: 6px 6px 0px 0px #3a3a3a;
+    --radio-hover-effect: 0 0 0 4px #12b76a63;
+    --radio-active-effect: 0 0 0 4px #12b76a63;
 }

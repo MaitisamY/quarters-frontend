@@ -1,37 +1,37 @@
 .section {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #282c34;
-  color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #282c34;
+    color: white;
 }
 
 .section h2 {
-  margin: 0;
+    margin: 0;
 }
 
 .list {
-  width: 30%;
+    width: 30%;
 }
 
 .content {
-  width: 70%;
-  text-align: left;
+    width: 70%;
+    text-align: left;
 }
 
 .trigger {
-  height: 50vh;
-  width: 100%;
-  position: absolute;
-  top: 50%;
+    height: 50vh;
+    width: 100%;
+    position: absolute;
+    top: 50%;
 }
 
 .fade-in {
-  opacity: 0;
-  transition: opacity 1s;
+    opacity: 0;
+    transition: opacity 1s;
 }
 
 .fade-in.active {
-  opacity: 1;
+    opacity: 1;
 }

@@ -1,3 +1,5 @@
+//Just A Dummy Dashboard Page
+
 import '../styles/inner-app.css';
 import '../styles/header.css'
 import '../styles/footer.css'

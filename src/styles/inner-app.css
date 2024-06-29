@@ -74,32 +74,32 @@
 }
 
 .inner-app-box .inner-app-box-header h1 span > .link {
-  position: relative; /* Required for positioning the ::after element */
-  margin: 0;
-  padding: 0;
-  font-size: 15px;
-  text-align: left;
-  text-decoration: none;
-  color: var(--text-green);
-  text-shadow: var(--text-green-shadow);
-  cursor: pointer;
-  font-weight: 600;
-  transition: color 0.3s ease;
+    position: relative; /* Required for positioning the ::after element */
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    text-align: left;
+    text-decoration: none;
+    color: var(--text-green);
+    text-shadow: var(--text-green-shadow);
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 .inner-app-box .inner-app-box-header h1 span > .link::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #12b76a;
-  transition: width 0.3s ease;
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #12b76a;
+    transition: width 0.3s ease;
 }
 
 .inner-app-box .inner-app-box-header h1 span > .link:hover::after {
-  width: 100%;
+    width: 100%;
 }
 
 .inner-app-box .inner-app-box-header .logout-button {
@@ -113,4 +113,4 @@
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
-  }
+}

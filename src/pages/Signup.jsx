@@ -67,7 +67,8 @@ const Signup = () => {
             password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
             confirmPassword: Yup.string()
                 .oneOf([Yup.ref('password'), null], 'Passwords must match')
-                .required('Confirm Password is required')
+                .required('Confirm Password is required'),
+            referral_code: Yup.string()
         }),
         onSubmit: async (values) => {
             try {
@@ -78,7 +79,8 @@ const Signup = () => {
                     lastName: values.lastName,
                     email: values.email,
                     phone: values.phoneNumber,
-                    password: values.password
+                    password: values.password,
+                    referral_code: values.referral_code ? values.referral_code : '', 
                 });
 
                 setTimeout(() => {
@@ -131,9 +133,9 @@ const Signup = () => {
                 />
                 <motion.div 
                     className="outer-app-box"
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1 }}
+                    transition={{ duration: 1, ease: "easeIn" }}
                 >
                     <div className="outer-app-box-header">
                         <h1>Sign-up</h1>
@@ -278,6 +280,19 @@ const Signup = () => {
                                 />
                             </div>
                             {formik.touched.confirmPassword ? <p>{formik.errors.confirmPassword}</p> : null}
+
+                            <label htmlFor="referralCode">Referral Code</label>
+                            <div className="custom-group">
+                                <input
+                                    className="field"
+                                    id="referralCode"
+                                    name="referralCode"
+                                    value={formik.values.referralCode}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    placeholder="Enter referral code"
+                                />
+                            </div>
 
                             <button type="submit" className="custom-button" disabled={isLoading}>
                                 {

@@ -1,665 +1,666 @@
 .outer-app-container {
-  width: 100%;
-  height: auto;
-  min-height: 92vh;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  padding: 0 30px 0 30px;
-  margin: 0;
-  overflow: hidden;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  background: rgba(255, 255, 255, 0.1);
-  position: relative; /* Ensure pseudo-elements are positioned relative to this container */
+    width: 100%;
+    height: auto;
+    min-height: 92vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 0 30px 0 30px;
+    margin: 0;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    background: rgba(255, 255, 255, 0.1);
+    position: relative; /* Ensure pseudo-elements are positioned relative to this container */
 }
 
 .outer-app-container .left-curve {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1; /* Ensure these shapes are behind the content */
-  width: 650px; /* Adjust the width as needed */
-  height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Ensure these shapes are behind the content */
+    width: 650px; /* Adjust the width as needed */
+    height: auto;
 }
 
 .outer-app-container .bottom-right-shape {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: -1; /* Ensure these shapes are behind the content */
-  width: 600px; /* Adjust the width as needed */
-  height: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1; /* Ensure these shapes are behind the content */
+    width: 600px; /* Adjust the width as needed */
+    height: auto;
 }
 
 @media screen and (max-width: 768px) {
-  .outer-app-container .left-curve {
-    display: none;
-  }
+    .outer-app-container .left-curve {
+        display: none;
+    }
 
-  .outer-app-container .bottom-right-shape {
-    display: none;
-  }
+    .outer-app-container .bottom-right-shape {
+        display: none;
+    }
 }
 
 .outer-app-box {
-  position: relative;
-  width: 25vw;
-  height: auto;
-  min-height: 95vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px 10px;
-  margin: 0;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
+    position: relative;
+    width: 25vw;
+    height: auto;
+    min-height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 10px;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
 }
 
 .outer-app-box .outer-app-box-header {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 10px;
-  padding: 0;
-  margin: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
 }
 
 .outer-app-box .outer-app-box-header-center {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 15px;
-  padding: 0;
-  margin: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
 }
 
 .outer-app-box .outer-app-box-header-center .envelop {
-  width: fit-content;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-size: larger;
-  gap: 10px;
-  padding: 5px;
-  margin: 0;
-  border-radius: 50px;
-  background-color: #e7f8f0;
-  outline: 4px solid #d2f1e3;
-  box-shadow: 0 0 0 8px #e7f8f0;
+    width: fit-content;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: larger;
+    gap: 10px;
+    padding: 5px;
+    margin: 0;
+    border-radius: 50px;
+    background-color: #e7f8f0;
+    outline: 4px solid #d2f1e3;
+    box-shadow: 0 0 0 8px #e7f8f0;
 }
 
 .outer-app-box .outer-app-box-header-center p {
-  color: #505050;
-  font-size: 14px;
+    color: #505050;
+    font-size: 14px;
 }
 
 .outer-app-box .outer-app-box-header h1 {
-  font-size: 25px;
-  font-weight: 450;
-  color: #000;
-  margin: 0 0 0 10px;
-  padding: 10px 0 10px 0;
-  font-family: "Creato Display Bold", sans-serif;
+    font-size: 25px;
+    font-weight: 450;
+    color: #000;
+    margin: 0 0 0 10px;
+    padding: 10px 0 10px 0;
+    font-family: "Creato Display Bold", sans-serif;
 }
 
 .outer-app-box .outer-app-box-body {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 5px;
-  padding: 0;
-  margin: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
+    margin: 0;
 }
 
 .outer-app-box .outer-app-box-body .welcome-message {
-  position: relative;
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 15px;
-  padding: 20px;
-  margin: 0;
-  box-shadow: 0px 8px 50px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.01);
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    margin: 50px 0 0 0;
+    box-shadow: 0px 8px 50px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.01);
 }
 
 .outer-app-box .outer-app-box-body .welcome-message .welcome-icon {
-  position: absolute;
-  top: -12%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px;
-  padding: 0;
-  margin: 0;
-  background-color: #12b76a;
-  border-radius: 50%;
-  color: #ffffff;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    background-color: #12b76a;
+    border-radius: 50%;
+    color: #ffffff;
 }
 
 .outer-app-box .outer-app-box-body .welcome-message .paragraph {
-  padding: 20px 0 0 0;
+    padding: 20px 0 0 0;
 }
 
 .outer-app-box .outer-app-box-body .welcome-message p {
-  color: #344054;
-  font-size: 14px;
-  text-align: center;
-  line-height: 1.5;
-  font-family: "Inter", sans-serif;
-  font-variation-settings: "wght" 550;
-  margin: 5px 0 0 0;
+    color: #344054;
+    font-size: 15px;
+    text-align: center;
+    line-height: 1.3;
+    font-family: "Inter", sans-serif;
+    font-variation-settings: "wght" 550;
+    margin: 15px 0 0 0;
+    letter-spacing: 0.5px;
 }
 
 .outer-app-box .outer-app-box-body form {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0;
-  padding: 0 15px 0 15px;
-  margin: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 15px 0 15px;
+    margin: 0;
 }
 
 .outer-app-box .outer-app-box-body form label {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 5px;
-  padding: 0;
-  margin: 15px 0 0 0;
-  color: #344054;
-  font-size: 14px;
-  font-family: "Inter", sans-serif;
-  font-variation-settings: "wght" 550;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
+    margin: 15px 0 0 0;
+    color: #344054;
+    font-size: 14px;
+    font-family: "Inter", sans-serif;
+    font-variation-settings: "wght" 550;
 }
 
 .outer-app-box .outer-app-box-body form .custom-group {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: row;
-  gap: 0;
-  padding: 0;
-  margin: 5px 0 0 0;
-  height: auto;
-  background-color: transparent;
-  border: 1px solid #d0d5dd;
-  border-radius: 25px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 0;
+    padding: 0;
+    margin: 5px 0 0 0;
+    height: auto;
+    background-color: transparent;
+    border: 1px solid #d0d5dd;
+    border-radius: 25px;
 }
 
 .outer-app-box .outer-app-box-body form .custom-group-verification {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: row;
-  gap: 10px;
-  padding: 0;
-  margin: 5px 0 0 0;
-  height: auto;
-  background-color: transparent;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 10px;
+    padding: 0;
+    margin: 5px 0 0 0;
+    height: auto;
+    background-color: transparent;
 }
 
 .radio-title {
-  font-size: 14px;
-  font-family: "Inter", sans-serif;
-  font-variation-settings: "wght" 550;
-  color: #344054;
-  width: fit-content;
-  margin: 0;
-  padding: 0 0 0 5px;
+    font-size: 14px;
+    font-family: "Inter", sans-serif;
+    font-variation-settings: "wght" 550;
+    color: #344054;
+    width: fit-content;
+    margin: 0;
+    padding: 0 0 0 5px;
 }
 
 @media screen and (max-width: 768px) {
-  .radio-title {
-    width: 100%;
-  }
+    .radio-title {
+        width: 100%;
+    }
 }
 
 .custom-radios-holder {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 8px;
-  height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    height: fit-content;
 }
 
 .custom-radios-holder h6 {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 input[type="radio"] {
-  width: 20px;
-  height: 20px;
-  margin: 0;
-  padding: 0;
-  border-radius: 50%;
-  appearance: none;
-  -webkit-appearance: none;
-  background-color: transparent;
-  border: 1px solid #12b76a;
-  position: relative;
-  cursor: pointer;
-  vertical-align: middle; /* Ensure alignment with text or other elements */
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 1px solid #12b76a;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle; /* Ensure alignment with text or other elements */
 }
 
 input[type="radio"]::before {
-  content: "";
-  display: block;
-  width: 12px; /* Slightly smaller than the radio button */
-  height: 12px; /* Slightly smaller than the radio button */
-  border-radius: 50%;
-  background: var(--active-link);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
+    content: "";
+    display: block;
+    width: 12px; /* Slightly smaller than the radio button */
+    height: 12px; /* Slightly smaller than the radio button */
+    border-radius: 50%;
+    background: var(--active-link);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
 }
 
 input[type="radio"]:checked::before {
-  opacity: 1;
+    opacity: 1;
 }
 
 input[type="radio"]:hover {
-  box-shadow: var(--radio-hover-effect);
-  background-color: transparent;
+    box-shadow: var(--radio-hover-effect);
+    background-color: transparent;
 }
 
 input[type="radio"]:checked {
-  box-shadow: var(--radio-active-effect);
+    box-shadow: var(--radio-active-effect);
 }
 
 .outer-app-box .outer-app-box-body form .custom-group-verification .field {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  color: #0f9b5a;
-  background-color: transparent;
-  border: 2px solid #0f9b5a;
-  font-size: 30px;
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  outline: none;
-  transition: all 0.2s ease-in-out;
-  resize: none;
-  text-align: center;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    color: #0f9b5a;
+    background-color: transparent;
+    border: 2px solid #0f9b5a;
+    font-size: 30px;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    resize: none;
+    text-align: center;
 }
 
 .outer-app-box .outer-app-box-body form .custom-group .field {
-  width: 100%;
-  height: auto;
-  padding: 10px 15px;
-  border-radius: 25px;
-  color: #667085;
-  background-color: transparent;
-  border: none;
-  font-size: 14px;
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  outline: none;
-  transition: all 0.2s ease-in-out;
-  resize: none;
+    width: 100%;
+    height: auto;
+    padding: 10px 15px;
+    border-radius: 25px;
+    color: #667085;
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    resize: none;
 }
 
 .outer-app-box .outer-app-box-body form .custom-group .field::placeholder {
-  color: #667085;
+    color: #667085;
 }
 
 .outer-app-box .outer-app-box-body form .custom-group .field:hover {
-  background-color: rgba(0, 0, 0, 0.03);
+    background-color: rgba(0, 0, 0, 0.03);
 }
 
 .outer-app-box .outer-app-box-body form .custom-group .field:focus,
 .outer-app-box .outer-app-box-body form .custom-group .field:active {
-  /* box-shadow: 0px 0px 0px 4px rgb(59, 87, 211, 0.45); */
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  background-color: rgba(0, 0, 0, 0.03);
+    /* box-shadow: 0px 0px 0px 4px rgb(59, 87, 211, 0.45); */
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.03);
 }
 
 .outer-app-box .outer-app-box-body form .custom-group span {
-  font-size: 15px;
-  padding: 12px;
-  margin: 0;
-  border-right: 1px solid #000;
-  font-size: 15px;
-  width: auto;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  gap: 0;
-  transition: all 0.2s ease-in-out;
+    font-size: 15px;
+    padding: 12px;
+    margin: 0;
+    border-right: 1px solid #000;
+    font-size: 15px;
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 0;
+    transition: all 0.2s ease-in-out;
 }
 
 .outer-app-box .outer-app-box-body form .custom-group a {
-  position: absolute;
-  top: 55%;
-  right: 5px;
-  transform: translateY(-50%);
-  font-size: 15px;
-  cursor: pointer;
-  padding: 10px 5px;
-  margin: 0;
+    position: absolute;
+    top: 55%;
+    right: 5px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 0;
 }
 
 .outer-app-box .outer-app-box-body form .google-button {
-  width: 100%;
-  height: auto;
-  padding: 10px 15px;
-  margin: 20px 0 0 0;
-  border-radius: 25px;
-  background-color: transparent;
-  border: 1px solid #505050;
-  outline: none;
-  color: #344054;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  gap: 10px;
-  transition: all 0.2s ease-in-out;
+    width: 100%;
+    height: auto;
+    padding: 10px 15px;
+    margin: 20px 0 0 0;
+    border-radius: 25px;
+    background-color: transparent;
+    border: 1px solid #505050;
+    outline: none;
+    color: #344054;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    transition: all 0.2s ease-in-out;
 }
 
 .outer-app-box .outer-app-box-body form .google-button:hover {
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .outer-app-box .outer-app-box-body form .google-button span {
-  transition: all 0.2s ease-in-out;
-  font-size: 18px;
-  margin-top: 5px;
+    transition: all 0.2s ease-in-out;
+    font-size: 18px;
+    margin-top: 5px;
 }
 
 .outer-app-box .outer-app-box-body form .google-button:hover span {
-  animation: spin 0.3s ease-in-out;
+    animation: spin 0.3s ease-in-out;
 }
 
 .outer-app-box .outer-app-box-body form .custom-button {
-  width: 100%;
-  height: auto;
-  padding: 10px 15px;
-  margin: 20px 0 0 0;
-  border-radius: 25px;
-  background-color: #12b76a;
-  border: none;
-  outline: none;
-  color: #fff;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  gap: 10px;
-  transition: all 0.2s ease-in-out;
+    width: 100%;
+    height: auto;
+    padding: 10px 15px;
+    margin: 20px 0 0 0;
+    border-radius: 25px;
+    background-color: #12b76a;
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    transition: all 0.2s ease-in-out;
 }
 
 .outer-app-box .outer-app-box-body form .custom-button:hover {
-  background-color: #0f9b5a;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: #0f9b5a;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .outer-app-box .outer-app-box-body form .custom-button:disabled {
-  cursor: not-allowed;
-  background-color: #888888d5;
-  padding: 10px 15px;
+    cursor: not-allowed;
+    background-color: #888888d5;
+    padding: 10px 15px;
 }
 
 .outer-app-box .outer-app-box-body form .custom-button:disabled:hover {
-  background-color: #888888d5;
-  box-shadow: none;
+    background-color: #888888d5;
+    box-shadow: none;
 }
 
 .outer-app-box .outer-app-box-body form .custom-button span {
-  transition: all 0.2s ease-in-out;
-  font-size: 18px;
-  margin-top: 5px;
+    transition: all 0.2s ease-in-out;
+    font-size: 18px;
+    margin-top: 5px;
 }
 
 .outer-app-box .outer-app-box-body form .custom-button:hover span {
-  transform: translateX(5px);
+    transform: translateX(5px);
 }
 
 .outer-app-box .outer-app-box-body form .custom-button .loader {
-  width: 20px;
-  height: 20px;
-  margin: 0;
-  padding: 0;
-  border: 3px solid #fff;
-  border-top: 3px solid transparent;
-  border-radius: 50%;
-  animation: loader 1s linear infinite;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    border: 3px solid #fff;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: loader 1s linear infinite;
 }
 
 .outer-app-box .outer-app-box-body form .customer {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 5px;
-  padding: 0;
-  margin: 15px 0 0 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
+    margin: 15px 0 0 0;
 }
 
 .outer-app-box .outer-app-box-body form .customer h4 {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  text-align: left;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.2s ease-in-out;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 5px;
-  width: fit-content;
-  cursor: pointer;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+    width: fit-content;
+    cursor: pointer;
 }
 
 .outer-app-box .outer-app-box-body form .customer h4 span {
-  font-size: 22px;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.2s ease-in-out;
-  color: #505050;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    color: #505050;
 }
 
 .outer-app-box .outer-app-box-body form .customer h4 i {
-  font-style: normal;
-  margin-top: 2.5px;
-  color: #505050;
+    font-style: normal;
+    margin-top: 2.5px;
+    color: #505050;
 }
 
 .outer-app-box .outer-app-box-body form p {
-  font-size: medium;
-  font-weight: 500;
-  color: #505050;
-  margin: 10px 0 0 0;
-  padding: 0;
-  font-size: 13px;
-  text-align: left;
+    font-size: medium;
+    font-weight: 500;
+    color: #505050;
+    margin: 10px 0 0 0;
+    padding: 0;
+    font-size: 13px;
+    text-align: left;
 }
 
 .outer-app-box .outer-app-box-footer {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px 25px;
-  margin: 0;
-  font-size: 14px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 25px;
+    margin: 0;
+    font-size: 14px;
 }
 
 /* Responsive */
 
 @media screen and (max-width: 1749px) {
-  .outer-app-box {
-    width: 25%;
-  }
+    .outer-app-box {
+        width: 25%;
+    }
 }
 
 @media screen and (max-width: 1549px) {
-  .outer-app-box {
-    width: 30%;
-  }
+    .outer-app-box {
+        width: 30%;
+    }
 }
 
 @media screen and (max-width: 1335px) {
-  .outer-app-box {
-    width: 35%;
-  }
+    .outer-app-box {
+        width: 35%;
+    }
 }
 
 @media screen and (max-width: 1149px) {
-  .outer-app-box {
-    width: 40%;
-  }
+    .outer-app-box {
+        width: 40%;
+    }
 }
 
 @media screen and (max-width: 1029px) {
-  .outer-app-box {
-    width: 45%;
-  }
+    .outer-app-box {
+        width: 45%;
+    }
 }
 
 @media screen and (max-width: 949px) {
-  .outer-app-box {
-    width: 50%;
-  }
+    .outer-app-box {
+        width: 50%;
+    }
 }
 
 @media screen and (max-width: 849px) {
-  .outer-app-box {
-    width: 55%;
-  }
+    .outer-app-box {
+        width: 55%;
+    }
 }
 
 @media screen and (max-width: 791px) {
-  .outer-app-box {
-    width: 60%;
-  }
+    .outer-app-box {
+        width: 60%;
+    }
 
-  .outer-app-box .outer-app-box-footer {
-    padding: 20px 10px;
-  }
+    .outer-app-box .outer-app-box-footer {
+        padding: 20px 10px;
+    }
 }
 
 @media screen and (max-width: 739px) {
-  .outer-app-box {
-    width: 65%;
-  }
+    .outer-app-box {
+        width: 65%;
+    }
 }
 
 @media screen and (max-width: 699px) {
-  .outer-app-box {
-    width: 75%;
-  }
+    .outer-app-box {
+        width: 75%;
+    }
 }
 
 @media screen and (max-width: 629px) {
-  .outer-app-box {
-    width: 85%;
-  }
+    .outer-app-box {
+        width: 85%;
+    }
 }
 
 @media screen and (max-width: 579px) {
-  .outer-app-box {
-    width: 90%;
-  }
+    .outer-app-box {
+        width: 90%;
+    }
 }
 
 @media screen and (max-width: 519px) {
-  .outer-app-box {
-    width: 95%;
-  }
+    .outer-app-box {
+        width: 95%;
+    }
 }
 
 @media screen and (max-width: 489px) {
-  .outer-app-box {
-    width: 100%;
-  }
+    .outer-app-box {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 425px) {
-  .outer-app-box {
-    width: 100%;
-  }
+    .outer-app-box {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 385px) {
-  .outer-app-box {
-    width: 100%;
-  }
+    .outer-app-box {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 385px) {
-  .outer-app-box {
-    width: 100%;
-  }
+    .outer-app-box {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 349px) {
-  .outer-app-box {
-    width: 100%;
-  }
+    .outer-app-box {
+        width: 100%;
+    }
 
-  .outer-app-box .outer-app-box-body form {
-    padding: 0 5px 0 5px;
-  }
+    .outer-app-box .outer-app-box-body form {
+        padding: 0 5px 0 5px;
+    }
 }

@@ -13,6 +13,8 @@ import Dashboard from './pages/Dashboard'
 import ProtectedRoute from './private/ProtectedRoute'
 import AdminRoutes from './routes/AdminRoutes'
 
+
+
 const App = () => {
     return (
         <AuthProvider>

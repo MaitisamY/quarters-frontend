@@ -5,6 +5,7 @@ import { FaPen, FaTrash } from 'react-icons/fa';
 import axios from 'axios';
 import '../styles/pagination.css'; 
 
+/* Predefined roles */
 const roles = ['landlord', 'renter', 'agent'];
 
 const PaginatedItems = ({ itemsPerPage }) => {

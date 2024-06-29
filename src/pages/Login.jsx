@@ -66,7 +66,7 @@ const Login = () => {
             try {
                 setIsLoading(true)
 
-                const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/users/login`, values)
+                const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/users/login`, values)
                 setTimeout(() => {
                     adminLogin(response.data)
                     setIsLoading(false)
@@ -127,9 +127,9 @@ const Login = () => {
                 />
                 <motion.div 
                     className="outer-app-box"
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1 }}
+                    transition={{ duration: 1, ease: "easeIn" }}
                 >
                     <div className="outer-app-box-header">
                         <h1>Login</h1>

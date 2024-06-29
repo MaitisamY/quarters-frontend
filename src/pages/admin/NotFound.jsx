@@ -65,9 +65,9 @@ const NotFound = () => {
                 />
                 <motion.div 
                     className="not-found"
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1 }}
+                    transition={{ duration: 1, ease: "easeIn" }}
                 >
                     <h1>404 - Not Found</h1>
                     <p>The page you are looking for does not exist.</p>
