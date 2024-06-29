@@ -3,13 +3,13 @@ import '../styles/outer-app.css';
 import { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
 import { useAuth } from '../context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import { motion } from 'framer-motion';
+import { SuccessToastColored, ErrorToastColored } from '../utils/ToastMessage';
+import { sendReferralEmail } from '../services/api';
 
 const Welcome = () => {
 
@@ -62,44 +62,29 @@ const Welcome = () => {
         onSubmit: async (values) => {
             setIsLoading(true);
             try {
-                const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/new/referrals`, {
+                const data = {
                     referrer: user?.name, 
                     referrer_email: user?.email, 
                     referred_email: values.email,
                     referral_code: user.name.split(' ').join('_') + user.uniqueId,
-                });
+                }
+
+                const response = await sendReferralEmail(data);
                 if (response.status === 200) {
                     setTimeout(() => {
-                        toast.success(`Referral code sent to ${values.email}`, {
-                            position: "bottom-center",
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                            theme: "colored",
-                        });
-
+                        SuccessToastColored('Referral sent successfully', 5000);
                         formik.resetForm();
                         setIsLoading(false);
                     }, 3000);
                 }
             } catch (error) {
+                const errorMessage = error.response?.data?.message || 'Referral processing failed';
+                console.error('Error processing referral:', error);
                 setTimeout(() => {
-                    toast.error(error.response.data.error, {
-                        position: "bottom-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "colored",
-                    });
+                    ErrorToastColored(errorMessage, 5000);
                     setIsLoading(false);
                 }, 3000);
-            }
+            }            
         },
     });
 

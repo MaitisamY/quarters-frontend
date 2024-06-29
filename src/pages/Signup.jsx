@@ -3,13 +3,13 @@ import '../styles/outer-app.css';
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
 import { useAuth } from '../context/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import { motion } from 'framer-motion';
+import { ErrorToastColored } from '../utils/ToastMessage';
+import { registerUser } from '../services/api';
 
 const Signup = () => {
     const { register } = useAuth();
@@ -73,38 +73,31 @@ const Signup = () => {
         onSubmit: async (values) => {
             try {
                 setIsLoading(true);
-                const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/users/register`, {
-                    role: values.role.length > 0 ? values.role : 'admin',
+                const data = {
+                    role: values.role,
                     name: values.fullName,
                     lastName: values.lastName,
                     email: values.email,
                     phone: values.phoneNumber,
                     password: values.password,
-                    referral_code: values.referral_code ? values.referral_code : '', 
-                });
+                    referral_code: values.referral_code ? values.referral_code : '',
+                }
 
+                const response = await registerUser(data);
+            
                 setTimeout(() => {
                     register(response.data);
                     setIsLoading(false);
                     navigate(`/verify`);
                 }, 3000);
             } catch (error) {
-                const errorMessage = error.response?.data?.message || 'Credententials invalidated!';
+                const errorMessage = error.response?.data?.message || 'Registration failed';
                 console.error('Signup error:', error);
                 setTimeout(() => {
-                    toast.error(errorMessage, {
-                        position: "bottom-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "colored",
-                    });
+                    ErrorToastColored(errorMessage, 5000);
                     setIsLoading(false);
                 }, 3000);
-            }
+            }            
         }
     });
 

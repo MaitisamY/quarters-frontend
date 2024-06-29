@@ -1,9 +1,10 @@
+import '../styles/pagination.css'; 
+
 import { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import { motion } from 'framer-motion';
 import { FaPen, FaTrash } from 'react-icons/fa';
-import axios from 'axios';
-import '../styles/pagination.css'; 
+import { getAllUsers } from '../services/api';
 
 /* Predefined roles */
 const roles = ['landlord', 'renter', 'agent'];
@@ -15,11 +16,11 @@ const PaginatedItems = ({ itemsPerPage }) => {
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
     const [searchTerm, setSearchTerm] = useState('');
-    const [selectedRole, setSelectedRole] = useState('all'); // Default is 'all'
+    const [selectedRole, setSelectedRole] = useState('all');
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/users/all`);
+            const response = await getAllUsers();
             setItems(response.data);
         } catch (error) {
             console.error(error);

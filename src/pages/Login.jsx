@@ -3,14 +3,14 @@ import '../styles/outer-app.css'
 import { useState, useEffect } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import axios from 'axios'
 import { useAdminAuth } from '../context/AdminAuthProvider'
 import { Link, useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
 import { FaEye, FaEyeSlash } from 'react-icons/fa6'
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import { motion } from 'framer-motion';
+import { ErrorToastColored } from '../utils/ToastMessage';
+import { loginUser } from '../services/api';
 
 const Login = () => {
     const { admin, adminLogin } = useAdminAuth()
@@ -60,36 +60,22 @@ const Login = () => {
             password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required')
         }),
         onSubmit: async (values) => {
-            
             setIsLoading(true)
-
             try {
-                setIsLoading(true)
-
-                const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/users/login`, values)
+                const response = await loginUser(values);
                 setTimeout(() => {
-                    adminLogin(response.data)
-                    setIsLoading(false)
-                    navigate(`/${response.data.role}/dashboard`)
-                }, 3000)
-                
+                    adminLogin(response.data);
+                    setIsLoading(false);
+                    navigate(`/${response.data.role}/dashboard`);
+                }, 3000);
             } catch (error) {
                 const errorMessage = error.response?.data?.message || 'Login failed';
-                console.error('Signup error:', error);
+                console.error('Login error:', error);
                 setTimeout(() => {
-                    toast.error(errorMessage, {
-                        position: "bottom-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "colored",
-                    });
+                    ErrorToastColored(errorMessage, 5000);
                     setIsLoading(false);
                 }, 3000);
-            }
+            }            
         }
     })
 

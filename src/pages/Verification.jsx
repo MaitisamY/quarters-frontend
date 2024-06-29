@@ -5,12 +5,12 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useAuth } from '../context/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import { motion } from 'framer-motion';
 import { MdMailOutline } from 'react-icons/md';
-import axios from 'axios';
+import { ErrorToastColored } from '../utils/ToastMessage';
+import { sendWelcomeEmail } from '../services/api';
 
 const handleInput = (e, nextInput, prevInput) => {
     const { value } = e.target;
@@ -44,41 +44,22 @@ const Verification = () => {
             const enteredCode = `${values.code1}${values.code2}${values.code3}${values.code4}`;
             if (enteredCode === user.verificationCode) {
                 try {
-                    await axios.post(`${import.meta.env.VITE_SERVER_URL}/users/welcome`, {
-                        email: user.email,
-                    });
+                    await sendWelcomeEmail({ email: user.email });
                     setTimeout(() => {
-                        navigate('/welcome'); // Redirect to a welcome page or dashboard
+                        navigate('/welcome'); /* Redirect to a welcome page or dashboard */
                     }, 2000);
                 } catch (error) {
+                    const errorMessage = error.response?.data?.message || 'Error sending welcome email';
                     console.error('Error sending welcome email:', error);
-                    toast.error('Error sending welcome email', {
-                        position: "bottom-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "colored",
-                    });
+                    ErrorToastColored(errorMessage, 5000);
                     setIsLoading(false);
                 }
             } else {
                 setTimeout(() => {
-                    toast.error('Verification code is incorrect', {
-                        position: "bottom-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "colored",
-                    });
+                    ErrorToastColored('Invalid verification code', 5000);
                     setIsLoading(false);
                 }, 2000);
-            }
+            }            
         },
     });
 

@@ -1,9 +1,10 @@
+import '../styles/pagination.css'; 
+
 import { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import { motion } from 'framer-motion';
 import { FaPen, FaTrash } from 'react-icons/fa';
-import axios from 'axios';
-import '../styles/pagination.css'; 
+import { getReferrals } from '../services/api';
 
 const PaginatedItems = ({ itemsPerPage }) => {
     const [items, setItems] = useState([]);
@@ -15,7 +16,7 @@ const PaginatedItems = ({ itemsPerPage }) => {
 
     const fetchReferrals = async () => {
             try {
-                const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/new/getReferrals`);
+                const response = await getReferrals();
                 setItems(response.data);
             } catch (error) {
                 console.error(error);
