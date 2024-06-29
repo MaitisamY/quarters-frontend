@@ -59,12 +59,31 @@ const Signup = () => {
             confirmPassword: ''
         },
         validationSchema: Yup.object({
-            fullName: Yup.string().required('Name is required'),
-            lastName: Yup.string().required('Last name is required'),
-            email: Yup.string().email('Invalid email address').required('Email is required'),
-            phoneNumber: Yup.string().required('Phone number is required'),
+            fullName: Yup.string()
+                .min(3, 'Name must be at least 3 characters')
+                .max(50, 'Name must be at most 50 characters')
+                .matches(/^[a-zA-Z\s]*$/, 'Name must only contain letters and spaces')
+                .required('Name is required'),
+            lastName: Yup.string()
+                .min(3, 'Last name must be at least 3 characters')
+                .max(50, 'Last name must be at most 50 characters')
+                .matches(/^[a-zA-Z\s]*$/, 'Last name must only contain letters and spaces')
+                .required('Last name is required'),
+            email: Yup.string()
+                .email('Invalid email address')
+                .required('Email is required'),
+            phoneNumber: Yup.number()
+                .typeError('Phone number must be a number')
+                .integer('Must be a number')
+                .positive('Must be a positive number')
+                .min(11, 'Phone number must be at least 11 digits')
+                .max(16, 'Phone number must be at most 16 digits')
+                .typeError('Phone number must be a number')
+                .required('Phone number is required'),
             role: Yup.string().required('Role is required'),
-            password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
+            password: Yup.string()
+                .min(8, 'Password must be at least 8 characters')
+                .required('Password is required'),
             confirmPassword: Yup.string()
                 .oneOf([Yup.ref('password'), null], 'Passwords must match')
                 .required('Confirm Password is required'),
