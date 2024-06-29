@@ -24,7 +24,7 @@ const PaginatedItems = ({ itemsPerPage }) => {
     };
 
     useEffect(() => {
-        // Filter items based on search term and selected role
+        // Filter items based on search term
         let filtered = items.filter(item => {
             const nameMatch = item.referrer.toLowerCase().includes(searchTerm.toLowerCase());
             return nameMatch;
@@ -49,11 +49,6 @@ const PaginatedItems = ({ itemsPerPage }) => {
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
         setItemOffset(0); // Reset offset when searching
-    };
-
-    const handleRoleSelect = (event) => {
-        setSelectedRole(event.target.value);
-        setItemOffset(0); // Reset offset when role changes
     };
 
     useEffect(() => {
@@ -87,11 +82,12 @@ const PaginatedItems = ({ itemsPerPage }) => {
         >
             <thead>
             <tr>
-            <th>#</th>
+                <th>#</th>
                 <th>Referrer</th>
-                <th>Referrar Email</th>
+                <th>Referrer Email</th>
                 <th>Referred Email</th>
                 <th>Invite Code</th>
+                <th>Referral Count</th> 
                 <th>Actions</th>
             </tr>
             </thead>
@@ -101,8 +97,17 @@ const PaginatedItems = ({ itemsPerPage }) => {
                 <td>{itemOffset + index + 1}</td>
                     <td>{item.referrer}</td>
                     <td>{item.referrer_email}</td>
-                    <td>{item.referred_email}</td>
-                    <td>{item.referral_code}</td> 
+                    <td>
+                        {item.referrals.map((referral, idx) => (
+                            <div key={idx}>{referral.referred_email}</div>
+                        ))}
+                    </td>
+                    <td>
+                        {item.referrals.map((referral, idx) => (
+                            <div key={idx}>{referral.referral_code}</div>
+                        ))}
+                    </td>
+                    <td>{item.referral_count}</td> {/* Display referral count */}
                 <td style={{ display: 'flex', justifyContent: 'center', gap: '15px' }}>
                     <FaPen />
                     <FaTrash />
@@ -129,6 +134,7 @@ const PaginatedItems = ({ itemsPerPage }) => {
             breakClassName="page-item"
             breakLinkClassName="page-link"
             activeClassName="active"
+            forcePage={Math.floor(itemOffset / itemsPerPage)}
         />
         </>
     );

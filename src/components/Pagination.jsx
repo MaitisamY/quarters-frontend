@@ -140,6 +140,7 @@ const PaginatedItems = ({ itemsPerPage }) => {
                 breakClassName="page-item"
                 breakLinkClassName="page-link"
                 activeClassName="active"
+                forcePage={Math.floor(itemOffset / itemsPerPage)}
             />
         </>
     );
