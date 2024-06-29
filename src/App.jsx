@@ -9,7 +9,6 @@ import Verification from './pages/Verification'
 import Welcome from './pages/Welcome'
 import NotFound from './pages/NotFound'
 import Login from './pages/Login'
-import Dashboard from './pages/Dashboard'
 import ProtectedRoute from './private/ProtectedRoute'
 import AdminRoutes from './routes/AdminRoutes'
 
@@ -28,7 +27,6 @@ const App = () => {
                     <Route path="/verify" element={<Verification />} />
                     <Route path="/welcome" element={<Welcome />} />
                     <Route path="/login" element={<Login />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
                     <Route
                         path="/admin/*"
                         element={
