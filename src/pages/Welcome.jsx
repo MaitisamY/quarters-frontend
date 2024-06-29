@@ -58,15 +58,19 @@ const Welcome = () => {
                 .notOneOf([user?.email], 'You cannot refer yourself')
                 .notOneOf([user?.email.toUpperCase()], 'You cannot refer yourself')
                 .notOneOf([user?.email.toLowerCase()], 'You cannot refer yourself')
+                .notOneOf([user?.email.split('@')[0]], 'You cannot refer yourself')
+                .notOneOf([user?.email.split('@')[0].toUpperCase()], 'You cannot refer yourself')
+                .notOneOf([user?.email.split('@')[0].toLowerCase()], 'You cannot refer yourself'),
         }),
         onSubmit: async (values) => {
             setIsLoading(true);
             try {
+                const code = user.name.toUpperCase().split(' ').join('_') + user.uniqueId;
                 const data = {
                     referrer: user?.name, 
                     referrer_email: user?.email, 
                     referred_email: values.email,
-                    referral_code: user.name.split(' ').join('_') + user.uniqueId,
+                    referral_code: code,
                 }
 
                 const response = await sendReferralEmail(data);
