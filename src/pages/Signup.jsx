@@ -68,7 +68,7 @@ const Signup = () => {
             confirmPassword: Yup.string()
                 .oneOf([Yup.ref('password'), null], 'Passwords must match')
                 .required('Confirm Password is required'),
-            referral_code: Yup.string()
+            referralCode: Yup.string()
         }),
         onSubmit: async (values) => {
             try {
@@ -80,7 +80,7 @@ const Signup = () => {
                     email: values.email,
                     phone: values.phoneNumber,
                     password: values.password,
-                    referral_code: values.referral_code ? values.referral_code : '',
+                    referral_code: values.referralCode ? values.referralCode : '',
                 }
 
                 const response = await registerUser(data);
