@@ -7,10 +7,12 @@
 }
 
 .filters {
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    margin-left: 10%;
 }
 
 .input-search-filter {
@@ -144,10 +146,14 @@ table tr:nth-child(even) {
 
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
+    table th:nth-child(1), table td:nth-child(1) {
+        background-color: #f2f2f2;
+    }
+
     table th:nth-child(2) {
         position: sticky;
         left: 0;
-        background: #f2f2f2;
+        background-color: #f2f2f2;
         z-index: 1;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     }
@@ -155,7 +161,7 @@ table tr:nth-child(even) {
     table td:nth-child(2) {
         position: sticky;
         left: 0;
-        background: #fff;
+        background-color: #f2f2f2;
         z-index: 1;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     }

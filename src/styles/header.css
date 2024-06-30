@@ -45,6 +45,7 @@ header .site-logo {
         padding: 30px 30px;
         justify-content: center;
         align-items: center;
+        backdrop-filter: blur(15px);
     }
 
     header .site-logo {
