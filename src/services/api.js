@@ -5,7 +5,7 @@ const api = axios.create({
     baseURL: import.meta.env.VITE_SERVER_URL
 });
 
-// Error handling wrapper
+// Request handler for API calls
 const handleRequest = async (request) => {
     try {
         const response = await request;

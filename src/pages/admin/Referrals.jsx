@@ -82,19 +82,9 @@ const Referrals = () => {
                     transition={{ duration: 1, ease: "easeIn" }}
                 >
                     <div className="inner-app-box-header">
-                        <h1 
-                            style={{ 
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center',
-                                gap: '10px',
-                                width: '100%', 
-                                padding: '10px 0', 
-                                borderBottom: '1px solid #f2f2f2' 
-                            }}
-                        >
+                        <h1>
                             <span><Link className="link" to="/admin/dashboard">Dashboard</Link> Referrals</span>
-                            <div style={{ fontWeight: '600', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                            <div className="user">
                                 Hi! {admin?.name} 
                                 <a className="logout-button" onClick={adminLogout}>
                                     <MdLogout size={20} />

@@ -57,65 +57,65 @@ const PaginatedItems = ({ itemsPerPage }) => {
 
     return (
         <>
-        <div className="filters">
-            <input
+        <input
             type="text"
             placeholder="Search by name..."
             value={searchTerm}
             className="input-search-filter"
             onChange={handleSearchChange}
-            />
-        </div>
-        <motion.table
-            initial="hidden"
-            animate="visible"
-            variants={{
-            hidden: { scale: 0.8, opacity: 0 },
-            visible: { scale: 1, opacity: 1, transition: { delay: 0.4 } }
-            }}
-            className="table"
-            style={{ width: '100%' }}
-            cellSpacing="0"
-            cellPadding="0"
-            border="0"
-            role="grid"
-        >
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>Referrer</th>
-                <th>Referrer Email</th>
-                <th>Referred Email</th>
-                <th>Invite Code</th>
-                <th>Referral Count</th> 
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            {currentItems.map((item, index) => (
-                <tr key={index}>
-                <td>{itemOffset + index + 1}</td>
-                    <td>{item.referrer}</td>
-                    <td>{item.referrer_email}</td>
-                    <td>
-                        {item.referrals.map((referral, idx) => (
-                            <div key={idx}>{referral.referred_email}</div>
-                        ))}
-                    </td>
-                    <td>
-                        {item.referrals.map((referral, idx) => (
-                            <div key={idx}>{referral.referral_code}</div>
-                        ))}
-                    </td>
-                    <td>{item.referral_count}</td> {/* Display referral count */}
-                <td style={{ display: 'flex', justifyContent: 'center', gap: '15px' }}>
-                    <FaPen />
-                    <FaTrash />
-                </td>
+        />
+        <div className="table-wrapper">
+            <motion.table
+                initial="hidden"
+                animate="visible"
+                variants={{
+                hidden: { scale: 0.8, opacity: 0 },
+                visible: { scale: 1, opacity: 1, transition: { delay: 0.4 } }
+                }}
+                className="table"
+                style={{ width: '100%' }}
+                cellSpacing="0"
+                cellPadding="0"
+                border="0"
+                role="grid"
+            >
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Referrer</th>
+                    <th>Referrer Email</th>
+                    <th>Referred Email</th>
+                    <th>Invite Code</th>
+                    <th>Referral Count</th> 
+                    <th>Actions</th>
                 </tr>
-            ))}
-            </tbody>
-        </motion.table>
+                </thead>
+                <tbody>
+                {currentItems.map((item, index) => (
+                    <tr key={index}>
+                    <td>{itemOffset + index + 1}</td>
+                        <td className="text-left">{item.referrer}</td>
+                        <td className="text-left">{item.referrer_email}</td>
+                        <td className="text-left">
+                            {item.referrals.map((referral, idx) => (
+                                <div key={idx}>{referral.referred_email}</div>
+                            ))}
+                        </td>
+                        <td className="text-left">
+                            {item.referrals.map((referral, idx) => (
+                                idx === 0 ? <div key={idx}>{referral.referral_code}</div> : <div key={idx}></div>
+                            ))}
+                        </td>
+                        <td>{item.referral_count}</td> {/* Display referral count */}
+                    <td style={{ display: 'flex', justifyContent: 'center', gap: '15px' }}>
+                        <FaPen />
+                        <FaTrash />
+                    </td>
+                    </tr>
+                ))}
+                </tbody>
+            </motion.table>
+        </div>
         <ReactPaginate
             breakLabel="..."
             nextLabel={'Next'}

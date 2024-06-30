@@ -82,46 +82,48 @@ const PaginatedItems = ({ itemsPerPage }) => {
                 ))}
                 </select>
             </div>
-            <motion.table
-                initial="hidden"
-                animate="visible"
-                variants={{
-                hidden: { scale: 0.8, opacity: 0 },
-                visible: { scale: 1, opacity: 1, transition: { delay: 0.4 } }
-                }}
-                className="table"
-                style={{ width: '100%' }}
-                cellSpacing="0"
-                cellPadding="0"
-                border="0"
-                role="grid"
-            >
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Role</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {currentItems.map((item, index) => (
-                    <tr key={index}>
-                    <td>{itemOffset + index + 1}</td>
-                    <td>{item.name}</td>
-                    <td>{item.email}</td>
-                    <td>{item.phone}</td>
-                    <td>{item.role.charAt(0).toUpperCase() + item.role.slice(1)}</td>
-                    <td style={{ display: 'flex', justifyContent: 'center', gap: '15px' }}>
-                        <FaPen />
-                        <FaTrash />
-                    </td>
-                    </tr>
-                ))}
-                </tbody>
-            </motion.table>
+            <div className="table-wrapper">
+                <motion.table
+                    initial="hidden"
+                    animate="visible"
+                    variants={{
+                        hidden: { scale: 0.8, opacity: 0 },
+                        visible: { scale: 1, opacity: 1, transition: { delay: 0.4 } }
+                    }}
+                    className="table"
+                    style={{ width: '100%' }}
+                    cellSpacing="0"
+                    cellPadding="0"
+                    border="0"
+                    role="grid"
+                >
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {currentItems.map((item, index) => (
+                            <tr key={index}>
+                                <td>{itemOffset + index + 1}</td>
+                                <td>{item.name}</td>
+                                <td>{item.email}</td>
+                                <td>{item.phone}</td>
+                                <td>{item.role.charAt(0).toUpperCase() + item.role.slice(1)}</td>
+                                <td style={{ display: 'flex', justifyContent: 'center', gap: '15px' }}>
+                                    <FaPen />
+                                    <FaTrash />
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </motion.table>
+            </div>
             <ReactPaginate
                 breakLabel="..."
                 nextLabel={'Next'}

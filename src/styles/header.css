@@ -10,6 +10,10 @@ header {
     padding: 0 30px;
     box-sizing: border-box;
     background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
     backdrop-filter: blur(0px);
 }
 
@@ -28,6 +32,7 @@ header .site-logo {
 @media screen and (max-width: 1024px) {
     header {
         padding: 20px 30px;
+        background: none;
     }
 
     header .site-logo {
@@ -38,7 +43,6 @@ header .site-logo {
 @media screen and (max-width: 768px) {
     header {
         padding: 30px 30px;
-        backdrop-filter: blur(9px);
         justify-content: center;
         align-items: center;
     }
