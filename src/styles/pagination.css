@@ -7,12 +7,14 @@
 }
 
 .filters {
-    width: 80%;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
     gap: 10px;
-    margin-left: 10%;
+    padding: 0;
+    margin-top: 10px;
 }
 
 .input-search-filter {
@@ -168,6 +170,22 @@ table tr:nth-child(even) {
 
     table th:nth-child(2), table td:nth-child(2) {
         left: -2px; /* Adjust this value according to the width of your first column */
+    }
+}
+
+@media screen and (max-width: 449px) {
+    .filters {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .input-search-filter {
+        width: 100%;
+    }
+
+    .select-role {
+        width: 100%;
+        margin-left: 0;
     }
 }
 
