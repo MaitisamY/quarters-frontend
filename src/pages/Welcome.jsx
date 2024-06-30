@@ -65,7 +65,9 @@ const Welcome = () => {
         onSubmit: async (values) => {
             setIsLoading(true);
             try {
-                const code = user.name.toUpperCase().split(' ').join('_') + user.uniqueId;
+
+                // Generate referral code with name's first word and unique ID
+                const code = `${user.name.split(' ')[0].toUpperCase()}${user.uniqueId}`;
                 const data = {
                     referrer: user?.name, 
                     referrer_email: user?.email, 
